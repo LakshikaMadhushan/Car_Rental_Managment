@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Customer_registration</title>
+    <meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport">
+    <link href="assests/frm/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+<header class="row bg-primary  border m-0 container-fluid" style="margin: 0; ">
+    <div class=" col-10 ">
+        <div class="row">
+            <!--                <i class="fas fa-hand-holding-usd text-white pt-2 pl-0" style="font-size: 48px" ></i>-->
+            <h1 class=" ml-1 text-white" style="margin:2%;font-family: 'Oswald'">Car Rental Management</h1>
+        </div>
+    </div>
+    <div class="col-1" style="bottom: 10px">
+        <div class="pt-3 text-white" style="font-size: 40px">
+            <img src="assests/img/icons8-shutdown-60.png" style="position:relative;left:175%;" height="60" width="60"/>
+        </div>
+
+    </div>
+</header>
+<div class="card bg-dark text-white">
+    <img class="card-img" style="filter: blur(3px); " src="assests/img/2.jpg" alt="Card image">
+    <div class="card-img-overlay">
+        <div class="bg-img col-12" style="display: inline-block;">
+            <!--            <form action="/action_page.php" class="">-->
+            <h1>Customer Registration</h1>
+            <div class="form-group col-5" style="display: inline-block;">
+                <label for="customer_id">Customer ID</label>
+                <input class="form-control" id="customer_id" placeholder="Do Not Fill" name="customer_id" type="text" required>
+            </div>
+
+            <div class="form-group col-5" style="display: inline-block;">
+                <input type="file" class="custom-file-input" id="licenfront">
+                <label class="custom-file-label " for="licenfront">Licen Front Image</label>
+            </div>
+
+
+            <div class="form-group col-5 " style="display: inline-block;">
+                <label for="name">Name</label>
+                <input class="form-control" id="name" placeholder="Name" name="name" type="text" required>
+            </div>
+
+            <div class="form-group col-5" style="display: inline-block;">
+                <input type="file" class="custom-file-input" id="licenback">
+                <label class="custom-file-label " for="licenback">Licen Back Image</label>
+            </div>
+
+            <div class="form-group col-5 " style="display: inline-block;">
+                <label for="email1">E-Mail</label>
+                <input class="form-control" id="email1" placeholder="e-mail" name="email1" type="text" required>
+            </div>
+
+            <div class="form-group col-5 " style="display: inline-block;">
+                <label for="regdate">Date_Time</label>
+                <input class="form-control" id="regdate" placeholder="00:00:00 00:00:0000" name="regdate" type="text"
+                       required>
+            </div>
+
+            <div class="form-group col-5" style="display: inline-block;">
+                <label for="txtPassword1">Password</label>
+                <input class="form-control" id="txtPassword1" placeholder="Enter Password" name="psw1" type="password"
+                       required>
+            </div>
+
+            <button type="button" id="btnSaveCustomer1" style="display: inline-block;" class="btn btn-primary btn-lg  col-5 ">REGISTRATION</button>
+
+
+            <div class="form-group col-5">
+                <label for="address">Address</label>
+                <input class="form-control" id="address" placeholder="Address" name="address" type="text" required>
+            </div>
+
+            <div class="form-group col-5">
+                <label for="contact">Contact No</label>
+                <input class="form-control" id="contact" placeholder="Contact No" name="contact" type="text" required>
+            </div>
+        </div>
+
+
+<!--        <div class="bg-img col-5" style="display: inline-block;">-->
+<!--            <form action="/action_page.php" class="container">-->
+<!--            </form>-->
+<!--        </div>-->
+
+
+    </div>
+
+</div>
+
+</div>
+
+</body>
+<script src="assests/lib/jquery-3.5.1.min.js"></script>
+<script src="assests/frm/js/bootstrap.min.js"></script>
+<script>
+
+    $("#btnSaveCustomer1").click(function () {
+
+        let id = $("#customer_id").val();
+        let name = $("#name").val();
+        let email = $("#email1").val();
+        let password = $("#txtPassword1").val();
+        let address = $("#address").val();
+        let reg_date = $("#regdate").val();
+        let contact_no = $("#contact").val();
+        let licen_pic1 = $("#licenfront").val();
+        let licen_pic2 = $("#licenback").val();
+
+        $.ajax({
+            method: "post",
+            url: "http://localhost:8080/Back_End1_war/car/c1/user",
+            contentType: "application/json",
+            data: JSON.stringify({
+                "user_id": id,
+                "name": name,
+                "address": address,
+                "email": email,
+                "password": password,
+                "contact_no": contact_no,
+                "driving_licen_01": "driving_licen_01",
+                "driving_licen_02": "driving_licen_02",
+                "registrate_date": reg_date
+
+            }),
+            success: function (res) {
+                if (res.message == "Success") {
+                    alert("User Added");
+                    $(location).attr("href","Purchase_Manage.html" );
+                } else {
+                    alert(res.data);
+                }
+
+            }
+        });
+
+    });
+</script>
+</html>

@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Car_Management</title>
+    <meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport">
+    <link href="assests/frm/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        header>nav:nth-child(2)>div>ul>li>a{
+            color: white;
+            padding-left: 8px;
+        }
+    </style>
+</head>
+<body>
+<header class="row bg-primary  border m-0 container-fluid" style="margin: 0; ">
+    <div class=" col-4 ">
+        <div class="row">
+            <!--                <i class="fas fa-hand-holding-usd text-white pt-2 pl-0" style="font-size: 48px" ></i>-->
+            <h1 class=" ml-1 text-white" style="margin:2%;font-family: 'Oswald'">Car Rental Management</h1>
+        </div>
+    </div>
+
+    <nav class="navbar navbar-expand-lg navbar-light navbar-brand ">
+
+        <div class="collapse navbar-collapse pt-3  " id="navbarNav">
+            <ul class="navbar-nav font-weight-normal" style="ZXCfont-size: 20px">
+                <li class="nav-item">
+
+                    <a target="" href="Reservation.html">Reservation</a>
+                </li>
+                <li class="nav-item">
+                    <a target="" href="Reservation_Details_Management.html">Reservation_Details</a>
+                </li>
+                <li class="nav-item">
+
+                    <a target="" href="Payment Manage.html">Payment</a>
+                </li>
+                <li class="nav-item">
+
+                    <a target="" href="Driver_Management.html">Driver</a>
+                </li>
+                <li class="nav-item">
+
+                    <a target="" href="Car_Management.html">Car</a>
+                </li>
+                <li class="nav-item">
+
+                    <a target="" href="Car_Details_Management.html">Car_Deatils</a>
+                </li>
+                <li class="nav-item">
+
+                    <a target="" href="Lose_Damage_Waiver_Management.html">Lose_Damage</a>
+                </li>
+
+            </ul>
+        </div>
+    </nav>
+
+    <div class="col-1" style="bottom: 10px">
+        <div class="pt-3 text-white" style="font-size: 40px">
+            <img src="assests/img/icons8-shutdown-60.png" style="position:relative;left:175%;" height="60" width="60"/>
+        </div>
+
+    </div>
+</header>
+<div class="card bg-dark text-white">
+    <img class="card-img" style="filter: blur(3px); " src="assests/img/2.jpg" alt="Card image">
+    <div class="card-img-overlay">
+        <div class="bg-img col-12" style="display: inline-block;">
+            <!--            <form action="/action_page.php" class="">-->
+            <h1>Manage_Car</h1>
+            <div class="form-group col-3" style="display: inline-block;">
+                <label for="car_id">Car ID</label>
+                <input class="form-control" id="car_id" placeholder="Do Not Fill" name="car_id" type="text" required>
+            </div>
+
+            <div class="input-group mb-3 col-4 "style="display: inline-flex;">
+                <select class="custom-select" id="model_id">
+                    <option selected>Model_ID</option>
+
+                </select>
+            </div>
+
+            <div class="form-group col-4 " style="display: inline-block;">
+                <label for="milage">Milage</label>
+                <input class="form-control" id="milage" placeholder="Milage" name="milage" type="text" required>
+            </div>
+
+            <div class="form-group col-3 " style="display: inline-block;">
+                <label for="Colour">Colour</label>
+                <input class="form-control" id="Colour" placeholder="Colour" name="no_of_passenger" type="text"
+                       required>
+            </div>
+
+            <div class="form-group col-3" style="display: inline-block;">
+                <label for="maintain_km">Maintain KM</label>
+                <input class="form-control" id="maintain_km" placeholder="Maintain KM" name="maintain_km" type="text"
+                       required>
+            </div>
+            <div class="input-group mb-3 col-3 "style="display: inline-flex;">
+                <select class="custom-select" id="maintain_status">
+                    <option selected>Maintain_Status</option>
+                    <option >ON</option>
+                    <option >OFF</option>
+
+                </select>
+            </div>
+            <div class="input-group mb-3 col-2 "style="display: inline-flex;">
+                <select class="custom-select" id="car_satatus">
+                    <option selected>Car_Status</option>
+                    <option >Available</option>
+                    <option >Not Available</option>
+                    <option >Repairing</option>
+                </select>
+            </div>
+            <div class="form-group col-2 ml-3" style="display: inline-block;">
+                <input type="file" class="custom-file-input" id="car_pic1">
+                <label class="custom-file-label " for="car_pic1">Choose pic 01</label>
+            </div>
+            <div class="form-group col-2 ml-3" style="display: inline-block;">
+                <input type="file" class="custom-file-input" id="car_pic3">
+                <label class="custom-file-label " for="car_pic3">Choose pic 03</label>
+            </div>
+            <div class="form-group col-2 ml-3" style="display: inline-block;">
+                <input type="file" class="custom-file-input" id="car_pic4">
+                <label class="custom-file-label " for="car_pic4">Choose pic 04</label>
+            </div>
+            <div class="form-group col-2 ml-3" style="display: inline-block;">
+                <input type="file" class="custom-file-input" id="car_pic2">
+                <label class="custom-file-label " for="car_pic2">Choose pic 02</label>
+            </div>
+
+            <div>
+                <button type="button" style="display: inline-block;" id="btnSaveCar" class="btn btn-primary btn-lg  col-2 ml-3 mb-3">Block level button</button>
+                <button type="button" style="display: inline-block;" id="btnUpdateCar" class="btn btn-success btn-lg  col-2 ml-3 mb-3">Block level button</button>
+                <button type="button" style="display: inline-block;" id="btnDeleteCar" class="btn btn-danger btn-lg  col-2 ml-3 mb-3">Block level button</button>
+
+            </div>
+            <table class="table bg-light table-hover "
+                   style=" display: table-caption; width: 1400px; height: 200px;overflow-y: scroll; overflow-x: scroll;">
+                <thead class="bg-primary" style="">
+                <tr>
+                    <th scope="col">Car_ID..........................</th>
+                    <th scope="col">Model_ID........................</th>
+                    <th scope="col">Milage..........................</th>
+                    <th scope="col">Color...........................</th>
+                    <th scope="col">Maintain_KM.....................</th>
+                    <th scope="col">Maintain_Status....................</th>
+                    <th scope="col">Car_Status....................</th>
+
+
+                </tr>
+                </thead>
+                <tbody id="tblCar">
+
+                </tbody>
+            </table>
+
+
+        </div>
+
+        <button type="button" id="btnGetAllCar" class="btn btn-outline-primary btn-lg btn-block">Block level button</button>
+
+    </div>
+
+</div>
+
+</body>
+<script src="assests/lib/jquery-3.5.1.min.js"></script>
+<script src="assests/frm/js/bootstrap.min.js"></script>
+<script>
+    window.onload = function() {
+
+        getModelID()
+    };
+    function getModelID(){
+        $("#model_id").empty();
+        var model= `<option >${"Model ID"}</option>`;
+
+        $("#model_id").append(model);
+        $.ajax({
+            url: "http://localhost:8080/Back_End1_war/car/c1/cardetails",
+            dataType: 'json',
+            success: function (res) {
+                let data = res.data;
+                for (var i in data) {
+
+                    let id = data[i].model_id;
+
+
+                    var row= `<option >${id}</option>`;
+
+                    $("#model_id").append(row);
+
+                }
+            }
+        });
+    }
+
+
+    $("#btnSaveCar").click(function () {
+
+        let car_id = $("#car_id").val();
+        let model_id = $("#model_id").val();
+        let milage = $("#milage").val();
+        let colour = $("#Colour").val();
+        let maintain_km = $("#maintain_km").val();
+        let Maintain_status = $("#maintain_status").val();
+        let car_status = $("#car_satatus").val();
+        let car_pic1 = $("#car_pic1").val();
+        let car_pic2 = $("#car_pic2").val();
+        let car_pic3 = $("#car_pic3").val();
+        let car_pic4 = $("#car_pic4").val();
+
+
+
+        $.ajax({
+            method: "post",
+            url: "http://localhost:8080/Back_End1_war/car/c1/car",
+            contentType: "application/json",
+            data: JSON.stringify({
+                "car_id": car_id,
+                "model_id": model_id,
+                "milage": milage,
+                "colour": colour,
+                "maintain_km": maintain_km,
+                "maintain_status": Maintain_status,
+                "car_status": car_status,
+                "Car_pic_01": "car_pic01",
+                "Car_pic_02": "car_pic02",
+                "Car_pic_03": "car_pic03",
+                "Car_pic_04": "car_pic04"
+
+
+
+            }),
+            success: function (res) {
+                if (res.message == "Success") {
+                    alert("Car Added");
+                } else {
+                    alert(res.data);
+                }
+                loadAllCar();
+            }
+        })
+    });
+
+
+    $("#btnUpdateCar").click(function () {
+
+        let car_id = $("#car_id").val();
+        let model_id = $("#model_id").val();
+        let milage = $("#milage").val();
+        let colour = $("#Colour").val();
+        let maintain_km = $("#maintain_km").val();
+        let Maintain_status = $("#maintain_status").val();
+        let car_status = $("#car_satatus").val();
+        let car_pic1 = $("#car_pic1").val();
+        let car_pic2 = $("#car_pic2").val();
+        let car_pic3 = $("#car_pic3").val();
+        let car_pic4 = $("#car_pic4").val();
+
+
+
+        $.ajax({
+            method: "put",
+            url: "http://localhost:8080/Back_End1_war/car/c1/car",
+            contentType: "application/json",
+            data: JSON.stringify({
+                "car_id": car_id,
+                "model_id": model_id,
+                "milage": milage,
+                "colour": colour,
+                "maintain_km": maintain_km,
+                "maintain_status": Maintain_status,
+                "car_status": car_status,
+                "Car_pic_01": "car_pic01",
+                "Car_pic_02": "car_pic02",
+                "Car_pic_03": "car_pic03",
+                "Car_pic_04": "car_pic04"
+
+
+
+            }),
+            success: function (res) {
+                if (res.message == "Success") {
+                    alert("Car Updated");
+                } else {
+                    alert(res.data);
+                }
+                loadAllCar();
+            }
+        })
+    });
+
+    $("#car_id").on('keypress', function (e) {
+
+        if (e.code == "Enter") {
+
+            let carID = $("#car_id").val();
+            $.ajax({
+                url: "http://localhost:8080/Back_End1_war/car/c1/car/" + carID,
+                success: function (res) {
+                    if (res.message == "Success") {
+                        console.log(res);
+                        let car = res.data;
+                         $("#car_id").val(car.car_id);
+                         $("#model_id").val(car.model_id);
+                         $("#milage").val(car.milage);
+
+                        $("#Colour").val(car.colour);
+                       $("#maintain_km").val(car.maintain_km);
+                         $("#maintain_status").val(car.maintain_status);
+                         $("#car_satatus").val(car.car_status);
+                        $("#car_pic1").val(car.Car_pic_01);
+                     $("#car_pic2").val(car.Car_pic_02);
+                       $("#car_pic3").val(car.Car_pic_03);
+                         $("#car_pic4").val(car.Car_pic_04);
+                         alert(car.model_id);
+                    } else {
+                        alert(res.data);
+                    }
+                }
+            });
+        }
+    });
+    $("#btnDeleteCar").click(function () {
+        let id = $("#car_id").val();
+        $.ajax({
+            method:"delete",
+            url:"http://localhost:8080/Back_End1_war/car/c1/car?id="+id,
+            success:function (res){
+                if (res.message == "Success") {
+                    alert("Car  Removed..!");
+                } else {
+                    alert(res.data);
+                }
+                loadAllCar();
+            }
+        });
+    });
+    $("#btnGetAllCar").click(function () {
+            loadAllCar();
+        }
+    );
+
+    function loadAllCar() {
+        $("#tblCar").empty();
+        $.ajax({
+            url: "http://localhost:8080/Back_End1_war/car/c1/car",
+            dataType: 'json',
+            success: function (res) {
+                let data = res.data;
+                for (var i in data) {
+
+                    let car_id = data[i].car_id;
+                    let model_id =data[i].model_id;
+                    let milage = data[i].milage;
+                    let colour = data[i].colour;
+                    let maintain_km = data[i].maintain_km;
+                    let maintain_status = data[i].maintain_status;
+                    let car_status = data[i].car_status;
+                    let car_pic1 =data[i].Car_pic_01;
+                    let car_pic2 = data[i].Car_pic_02;
+                    let car_pic3 = data[i].Car_pic_03;
+                    let car_pic4 = data[i].Car_pic_04;
+
+                    var row = `<tr><td>${car_id}</td><td>${model_id}</td><td>${milage}</td><td>${colour}</td><td>${maintain_km}</td><td>${maintain_status}</td><td>${car_status}</td></tr>`;
+                    $("#tblCar").append(row);
+
+                }
+            }
+        });
+    }
+</script>
+</html>

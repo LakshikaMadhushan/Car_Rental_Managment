@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Reservation_Management</title>
+    <meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport">
+    <link href="assests/frm/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+<header class="row bg-primary  border m-0 container-fluid" style="margin: 0; ">
+    <div class=" col-10 ">
+        <div class="row">
+            <!--                <i class="fas fa-hand-holding-usd text-white pt-2 pl-0" style="font-size: 48px" ></i>-->
+            <h1 class=" ml-1 text-white" style="margin:2%;font-family: 'Oswald'">Car Rental Management</h1>
+        </div>
+    </div>
+    <div class="col-1" style="bottom: 10px">
+        <div class="pt-3 text-white" style="font-size: 40px">
+            <img src="assests/img/icons8-shutdown-60.png" style="position:relative;left:175%;" height="60" width="60"/>
+        </div>
+
+    </div>
+</header>
+<div class="card bg-dark text-white">
+    <img class="card-img" style="filter: blur(3px); " src="assests/img/2.jpg" alt="Card image">
+    <div class="card-img-overlay">
+        <div class="bg-img col-12" style="display: inline-block;">
+            <!--            <form action="/action_page.php" class="">-->
+            <h1>Manage Reservation</h1>
+            <div class="form-group col-3" style="display: inline-block;">
+                <label for="user_id">User ID</label>
+                <input class="form-control" id="user_id" placeholder="Do Not Fill" name="user_id" type="text" required>
+            </div>
+
+
+            <div class="form-group col-3 " style="display: inline-block;">
+                <label for="reservation_id">Reservation_ID</label>
+                <input class="form-control" id="reservation_id" placeholder="Do Not Fill" name="reservation_id" type="text" required>
+            </div>
+
+            <div class="input-group mb-3 col-3 "style="display: inline-flex;">
+                <select class="custom-select" id="request_status">
+                    <option selected>Request_Pending</option>
+
+                </select>
+            </div>
+
+<!--            <div class="form-group col-3 " style="display: inline-block;">-->
+<!--                <label for="request_status">Request_status</label>-->
+<!--                <input class="form-control" id="request_status" placeholder="Request_status" name="request_status" type="text" required>-->
+<!--            </div>-->
+
+<!--            <div class="input-group mb-3 col-3 "style="display: inline-flex;">-->
+<!--                <select class="custom-select" id="Request_status">-->
+<!--                    <option selected>Request Details</option>-->
+<!--                    <option value="1">One</option>-->
+<!--                    <option value="2">Two</option>-->
+<!--                    <option value="3">Three</option>-->
+<!--                </select>-->
+<!--            </div>-->
+
+<!--            <div class="form-group col-3 " style="display: inline-block;">-->
+<!--                <label for="pickup_date_time">Pick UP Date Time</label>-->
+<!--                <input class="form-control" id="pickup_date_time" placeholder="Pickup Date Time" name="pickup_date_time" type="text"-->
+<!--                       required>-->
+<!--            </div>-->
+            <div class="form-group col-3"style="display: inline-block;">
+                <label for="pickup_date_time">Pick UP Date Time</label>
+                <input class="form-control" id="pickup_date_time" type="datetime-local">
+            </div>
+
+<!--            <div class="form-group col-3 " style="display: inline-block;">-->
+<!--                <label for="return_date_time">Return UP Date Time</label>-->
+<!--                <input class="form-control" id="return_date_time" placeholder="Return Date Time" name="return_date_time" type="text"-->
+<!--                       required>-->
+<!--            </div>-->
+
+
+            <div class="form-group col-3"style="display: inline-block;">
+                <label for="return_date_time">Return UP Date Time</label>
+                <input class="form-control" id="return_date_time" type="datetime-local">
+            </div>
+
+            <div class="form-group col-3 ml-3" style="display: inline-block;">
+                <input type="file" class="custom-file-input" id="bank_slip">
+                <label class="custom-file-label " for="bank_slip">Choose Bank Slip</label>
+            </div>
+
+
+
+            <div>
+                <button type="button" id="addCart" style="display: inline-block;" class="btn btn-primary btn-lg  col-2 ml-3 mb-3">To Cart</button>
+                <button type="button" id="removeCart" style="display: inline-block;" class="btn btn-danger btn-lg  col-2 ml-3 mb-3">Remove From Cart</button>
+                <button type="button" id="showcars" style="display: inline-block;" class="btn btn-success btn-lg  col-2 ml-3 mb-3">Show Cars</button>
+                <button type="button" id="ok" style="display: inline-block;" class="btn btn-success btn-lg  col-1 ml-3 mb-3">Get Car</button>
+
+                <div class="form-group col-3" style="display: inline-block;">
+                    <label for="cars">Car ID</label>
+                    <input class="form-control" id="cars" placeholder="Do Not Fill" name="cars" type="text" required>
+                </div>
+            </div>
+            <table class="table bg-light table-hover " id="customertable" contenteditable="true"
+                   style=" display: table-caption; width: 1250px; height: 200px;overflow-y: scroll; overflow-x: scroll;">
+                <thead class="bg-primary" style="">
+                <tr>
+                    <th scope="col">User_ID.................</th>
+                    <th scope="col">Reservation_ID..........</th>
+                    <th scope="col">Reservation_Detail_ID......</th>
+                    <th scope="col">car_id..................</th>
+                    <th scope="col">pick_up_date...............</th>
+                    <th scope="col">return_date................</th>
+                    <th scope="col">request_status.............</th>
+                </tr>
+                </thead>
+                <tbody id="tblCarDetails">
+
+                </tbody>
+            </table>
+
+
+        </div>
+
+        <button type="button" id="UploadRequest" class="btn btn-outline-primary btn-lg btn-block">Block level button</button>
+
+    </div>
+
+</div>
+
+</body>
+<script src="assests/lib/jquery-3.5.1.min.js"></script>
+<script src="assests/frm/js/bootstrap.min.js"></script>
+<script>
+
+     window.onload = function() {
+         generateReservationID();
+         getUserID();
+    };
+
+    $("#showcars").click(function () {
+        window.open('Show_Cars.html', '_blank');
+    });
+
+     function getUserID(){
+         var name1=localStorage.getItem("login");
+         $("#user_id").val(name1)
+     }
+
+     function getCarID(){
+         var name2=localStorage.getItem("carId");
+         $("#cars").val(name2)
+     }
+     $("#ok").on('click', function (){
+         getCarID();
+     });
+
+
+    let user_id ;
+     let reservation_id;
+     let car_status ;
+     let  pDate;
+     let rDate;
+     let  bank ;
+     let car;
+
+
+    $("#addCart").click(function () {
+        alert("add To Cart");
+
+        user_id = $("#user_id").val();
+        reservation_id = $("#reservation_id").val();
+        car_status = $("#request_status").val();
+        pDate = $("#pickup_date_time").val();
+        rDate = $("#return_date_time").val();
+        bank = $("#bank_slip").val();
+        car= $("#cars").val();
+
+        var row = `<tr><td>${user_id}</td><td>${reservation_id}</td><td>${"RS"}</td><td>${car}</td><td>${pDate}</td><td>${rDate}</td><td>${car_status}</td></tr>`;
+        $('#tblCarDetails').append(row);
+        generateDetailID();
+
+
+    });
+
+    $("#removeCart").click(function () {
+        alert("remove from Cart");
+
+       let p= $('#tblCarDetails').children('tr').length;
+
+        $('#tblCarDetails').children('tr')[p-1].remove();
+
+
+    });
+
+    $("#tblCarDetails").on('click', function () {
+      let p1=  "Can't Select a row";
+
+     // alert(p1);
+    });
+
+     $("#UploadRequest").click(function () {
+         alert("Upload Request ......");
+
+         reservation_id = $("#reservation_id").val();
+         car_status = $("#request_status").val();
+         pDate = $("#pickup_date_time").val();
+         rDate = $("#return_date_time").val();
+         bank = $("#bank_slip").val();
+
+
+         let sampleArray = new Array();
+       //  let sampleArray2 = new Array();
+         let finalArray2 = [];
+
+
+         var table = document.getElementById('customertable');
+         //let length1 = table.rows.length;
+         for (var r = 1, n = table.rows.length; r < n; r++) {
+
+             sampleArray = {
+                 reservation_detail_id : table.rows[r].cells[2].innerHTML,
+                 reservation_id :table.rows[r].cells[1].innerHTML,
+                 car_id : table.rows[r].cells[3].innerHTML,
+                 driver_id : "",
+                 lose_damage_waiver_id : "",
+                 milage :" "
+             }
+             finalArray2.push(sampleArray);
+         }
+
+         $.ajax({
+             method: "post",
+             url: "http://localhost:8080/Back_End1_war/car/c1/purchase",
+             contentType: "application/json",
+             data: JSON.stringify({
+                 "reservation_id": reservation_id,
+                 "user_id": user_id,
+                 "request_status": car_status,
+                 "pick_up_date": pDate,
+                 "return_date": rDate,
+                 "bank_slip": car_status,
+                 "reservationDetails": finalArray2
+             }),
+             success: function (res) {
+                 if (res.message == "Success") {
+                     alert("Purcahse Added");
+                 } else {
+                     alert(res.data);
+                 }
+
+             }
+         })
+
+
+
+      alert(finalArray2[1].car_id);
+         alert("hai");
+
+
+
+     });
+
+
+
+    function  generateDetailID() {
+        $.ajax({
+            url: "http://localhost:8080/Back_End1_war/car/c1/purchase/last",
+            success: function (res) {
+                if (res.message == "Success") {
+                    var data = res.data;
+                    // let x= $('#tblCarDetails').children('tr').length;
+                    // let p= $('#tblCarDetails').children('tr').children('td').text("pp");
+                    // $('#tblCarDetails').children('tr').children('td').
+                alert(data);
+                } else {
+                    alert(res.data);
+                }
+            }
+        });
+    }
+
+
+    function generateReservationID(){
+        $.ajax({
+            url: "http://localhost:8080/Back_End1_war/car/c1/purchase/last/1",
+            success: function (res) {
+                if (res.message == "Success") {
+                    var data = res.data;
+                    let val=0;
+                    if(data!=null){
+                        let split = data.split('R');
+                        let no = parseInt(split[1]);
+                        no++;
+                        if(no<10) {
+                            val ="R00"+no;
+                        }else if(no<100){
+                            val ="R0"+no;
+                        }else{
+                            val ="R"+no;
+                        }
+
+                    }else {
+                        val="R001";
+                    }
+                    $("#reservation_id").val(val);
+                } else {
+                    alert(res.data);
+                }
+            }
+        });
+    }
+
+
+
+</script>
+</html>
